@@ -22,6 +22,12 @@ public class Kite : MonoBehaviour
     private float maxHeight = 4;
 
     private Vector3 previousPosition, deltaVector;
+    private Rigidbody2D rb;
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        UpdateRope();
+    }
 
 
     void Update()
@@ -35,23 +41,23 @@ public class Kite : MonoBehaviour
         {
             Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             worldMousePos.z = 0f;
-            transform.position = Vector3.MoveTowards(transform.position, worldMousePos, mouseMoveSpeed * Time.deltaTime);
+            rb.position = Vector3.MoveTowards(transform.position, worldMousePos, mouseMoveSpeed * Time.deltaTime);
             Vector3 extents = boundingBox.bounds.extents;
-            if (transform.position.x < boundingBox.bounds.center.x - extents.x)
+            if (rb.position.x < boundingBox.bounds.center.x - extents.x)
             {
-                transform.position = new Vector3(boundingBox.bounds.center.x - extents.x, transform.position.y, transform.position.z);
+                rb.position = new Vector3(boundingBox.bounds.center.x - extents.x, rb.position.y);
             }
-            if (transform.position.x > boundingBox.bounds.center.x + extents.x)
+            if (rb.position.x > boundingBox.bounds.center.x + extents.x)
             {
-                transform.position = new Vector3(boundingBox.bounds.center.x + extents.x, transform.position.y, transform.position.z);
+                rb.position = new Vector3(boundingBox.bounds.center.x + extents.x, rb.position.y);
             }
-            if (transform.position.y < boundingBox.bounds.center.y - extents.y)
+            if (rb.position.y < boundingBox.bounds.center.y - extents.y)
             {
-                transform.position = new Vector3(transform.position.x, boundingBox.bounds.center.y - extents.y, transform.position.z);
+                rb.position = new Vector3(rb.position.x, boundingBox.bounds.center.y - extents.y);
             }
-            if (transform.position.y > boundingBox.bounds.center.y + extents.y)
+            if (rb.position.y > boundingBox.bounds.center.y + extents.y)
             {
-                transform.position = new Vector3(transform.position.x, boundingBox.bounds.center.y + extents.y, transform.position.z);
+                rb.position = new Vector3(rb.position.x, boundingBox.bounds.center.y + extents.y);
             }
         }
 
@@ -73,11 +79,6 @@ public class Kite : MonoBehaviour
         transform.localEulerAngles = new Vector3(0f, 0f, newRotation);
     }
 
-    void Start()
-    {
-        UpdateRope();
-    }
-    
     public void MoveUp(float deltaTime)
     {
         transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, maxHeight), keyKiteSpeed * deltaTime);
