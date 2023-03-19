@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56cdd013eb39b434eae4a6a2245eaf31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  otherGround: {fileID: 1933165054}
 --- !u!61 &409062172
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1432,6 +1433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56cdd013eb39b434eae4a6a2245eaf31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  otherGround: {fileID: 409062174}
 --- !u!1 &2098890919
 GameObject:
   m_ObjectHideFlags: 0
