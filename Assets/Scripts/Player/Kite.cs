@@ -48,6 +48,6 @@ public class Kite : MonoBehaviour
         
         transform.GetChild(0).localScale = new Vector3(0.075f, length);
         transform.GetChild(0).position = (topPoint.position + bottomPoint.position) / 2;
-        transform.GetChild(0).localEulerAngles = new Vector3(0, 0, angle * Mathf.Rad2Deg - 47);
+        transform.GetChild(0).localEulerAngles = new Vector3(0, 0, angle * Mathf.Rad2Deg + 90);
     }
 }
