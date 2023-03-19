@@ -19,7 +19,7 @@ public class Bird : Obstacle
     {
         kiteTransform = GameObject.FindGameObjectWithTag("Kite").transform;
         interactWithKite = true;
-        birdModifier = Random.Range(0, 0.5f);
+        birdModifier = Random.Range(0.5f, 1);
     }
 
     void Update()

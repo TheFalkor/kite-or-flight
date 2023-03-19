@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player player;
 
     [Header("Variables")]
+    [SerializeField] private float maxSpeed = 25;
+    [SerializeField] private float speedIncrease = 0.1f;
     private float spawnSpeed = 0;
 
     [Header("Runtime Variables")]
@@ -49,7 +51,8 @@ public class GameManager : MonoBehaviour
         foreach (Ground g in groundList)
             g.MoveGround(Time.deltaTime);
 
-        speed += 0.2f * Time.deltaTime;
+        if (speed < maxSpeed)
+            speed += speedIncrease * Time.deltaTime;
 
         foreach (Ground g in groundList)
             g.SetSpeed(speed);
