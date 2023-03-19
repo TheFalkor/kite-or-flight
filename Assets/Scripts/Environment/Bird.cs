@@ -17,6 +17,7 @@ public class Bird : Obstacle
     void Start()
     {
         kiteTransform = GameObject.FindGameObjectWithTag("Kite").transform;
+        interactWithKite = true;
     }
 
     void Update()
