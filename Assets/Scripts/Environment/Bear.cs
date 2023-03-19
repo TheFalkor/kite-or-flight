@@ -17,5 +17,8 @@ public class Bear : Obstacle
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, new Vector2(-20, bearY), speed * Time.deltaTime);
+
+        if (transform.position.x == -20)
+            RemoveObstacle();
     }
 }

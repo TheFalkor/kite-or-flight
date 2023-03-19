@@ -68,6 +68,6 @@ public class GameManager : MonoBehaviour
         Obstacle obs = Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Count)], new Vector2(20, Random.Range(-0.5f, 4f)), Quaternion.identity, obstacleParent).GetComponent<Obstacle>();
         obstacles.Add(obs);
 
-        obs.SetSpeed(Random.Range(0.5f, 1f) * speed);
+        obs.SetSpeed(speed);
     }
 }

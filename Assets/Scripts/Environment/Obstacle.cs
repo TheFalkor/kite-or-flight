@@ -27,4 +27,9 @@ public abstract class Obstacle : MonoBehaviour
             Debug.Log("Player crashed");
         }
     }
+
+    protected void RemoveObstacle()
+    {
+        Destroy(gameObject);
+    }
 }
