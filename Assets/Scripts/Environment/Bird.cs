@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Bird : Obstacle
 {
+    [Header("Variables")]
+    [SerializeField] private float targetSpeed = 10;
+
     [Header("References")]
     private Transform kiteTransform;
+
+    [Header("Runtime Variables")]
+    private bool hasScreamed = false;
 
 
     void Start()
@@ -19,6 +25,13 @@ public class Bird : Obstacle
         if (transform.position.x > kiteTransform.position.x)
             targetY = kiteTransform.position.y;
 
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(-20, targetY), speed * Time.deltaTime);
+        transform.position = new Vector2(transform.position.x, Mathf.MoveTowards(transform.position.y, targetY, Time.deltaTime * targetSpeed));
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(-20, transform.position.y), speed * Time.deltaTime);
+
+        if (!hasScreamed && transform.position.x < 7)
+        {
+            hasScreamed = true;
+            ServiceLocator.Get<AudioCore>().PlaySFX("BIRD");
+        }
     }
 }
