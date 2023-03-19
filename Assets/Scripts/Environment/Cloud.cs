@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class Cloud : MonoBehaviour
 {
+    [Header("Variables")]
     public float speed = 100;
 
-    void Start()
-    {
-        
-    }
 
     void Update()
     {

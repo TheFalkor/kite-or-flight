@@ -10,11 +10,6 @@ public class MainMenu : MonoBehaviour
         
     }
 
-    void Update()
-    {
-        
-    }
-
     public void PlayGame()
     {
         SceneManager.LoadScene("main");
@@ -22,6 +17,10 @@ public class MainMenu : MonoBehaviour
 
     public void Quit()
     {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
 }

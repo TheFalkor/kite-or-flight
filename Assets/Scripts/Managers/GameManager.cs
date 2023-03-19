@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [Header("Variables")]
     [SerializeField] private float maxSpeed = 25;
     [SerializeField] private float speedIncrease = 0.1f;
-    private float spawnSpeed = 0;
+    private float spawnSpeed = 5;
 
     [Header("Runtime Variables")]
     private List<Obstacle> obstacles = new List<Obstacle>();

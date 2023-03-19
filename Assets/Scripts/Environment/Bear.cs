@@ -10,6 +10,8 @@ public class Bear : Obstacle
 
     void Start()
     {
+        bearY += Random.Range(-0.1f, 0.1f);
+
         interactWithPlayer = true;
         transform.position = new Vector2(transform.position.x, bearY);
     }
