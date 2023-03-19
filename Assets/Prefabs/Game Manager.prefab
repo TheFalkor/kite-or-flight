@@ -49,7 +49,9 @@ MonoBehaviour:
   - {fileID: 6163544215454023745, guid: 7c911b5a19ba8914aa9cc1471853e1ee, type: 3}
   obstacleParent: {fileID: 0}
   player: {fileID: 0}
-  speed: 8
+  maxSpeed: 25
+  speedIncrease: 0.1
+  speed: 11
 --- !u!114 &8773788361768571791
 MonoBehaviour:
   m_ObjectHideFlags: 0
