@@ -682,7 +682,7 @@ MonoBehaviour:
   boundingBox: {fileID: 372389667}
   keyKiteSpeed: 9
   mouseKiteSpeed: 90
-  mouseMoveSpeed: 20
+  mouseMoveSpeed: 60
   rotationSpeed: 150
   downAngle: 0
   upAngle: 0
