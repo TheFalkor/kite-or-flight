@@ -6,7 +6,9 @@ public class GameManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject obstaclePrefab;
-    [SerializeField] private List<Ground> groundList = new List<Ground>();
+    [SerializeField] private Transform obstacleParent;
+    [Space]
+    private List<Ground> groundList = new List<Ground>();
     [SerializeField] private Player player;
 
     [Header("Variables")]
@@ -24,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Ground"))
+            groundList.Add(go.GetComponent<Ground>());
+
         foreach (Ground g in groundList)
             g.SetSpeed(speed);
     }
@@ -60,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     private void SpawnObstacle()
     {
-        Obstacle obs = Instantiate(obstaclePrefab, new Vector2(10, Random.Range(-0.5f, 4f)), Quaternion.identity).GetComponent<Obstacle>();
+        Obstacle obs = Instantiate(obstaclePrefab, new Vector2(10, Random.Range(-0.5f, 4f)), Quaternion.identity, obstacleParent).GetComponent<Obstacle>();
         obstacles.Add(obs);
 
         obs.SetSpeed(Random.Range(0.5f, 1f) * speed);
