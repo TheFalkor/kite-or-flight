@@ -56,5 +56,7 @@ public class Character : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         animator.SetBool("tripped", true);
+        ServiceLocator.Get<GameManager>().Speed = 0f;
+        ServiceLocator.Get<GameManager>().SpeedIncrease = 0f;
     }
 }

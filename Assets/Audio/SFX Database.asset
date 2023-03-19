@@ -24,4 +24,15 @@ MonoBehaviour:
     - modifierType: 0
       minimumValue: 1
       maximumValue: 1.2
-  databaseLength: 1
+  - soundEffectName: AIRPLANE
+    audio:
+      audioType: 0
+      audioClip: {fileID: 8300000, guid: 5d15e2fa66795694e836737cdbf79cbc, type: 3}
+      audioClips: []
+    volume: 1
+    pitch: 1
+    modifiers:
+    - modifierType: 0
+      minimumValue: 1
+      maximumValue: 1.2
+  databaseLength: 2
