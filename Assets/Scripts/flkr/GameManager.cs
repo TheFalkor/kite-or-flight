@@ -60,7 +60,7 @@ namespace flkr
             MovingObstacle obs = Instantiate(obstaclePrefab, new Vector2(10, Random.Range(-0.5f, 4f)), Quaternion.identity).GetComponent<MovingObstacle>();
             obstacles.Add(obs);
 
-            obs.SetSpeed(Random.Range(0.75f, 1.75f) * speed);
+            obs.SetSpeed(Random.Range(0.5f, 1f) * speed);
         }
     }
 }
