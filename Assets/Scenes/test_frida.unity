@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7648147679703897433, guid: 0961a7e9fd39d4a4ba8be88d19233f12, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648147679703897433, guid: 0961a7e9fd39d4a4ba8be88d19233f12, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7648147680189483277, guid: 0961a7e9fd39d4a4ba8be88d19233f12, type: 3}
       propertyPath: m_Name
       value: vfx_jump
