@@ -23,15 +23,26 @@ public class Kite : MonoBehaviour
 
     private Vector3 previousPosition, deltaVector;
     private Rigidbody2D rb;
+    private bool isDead = false;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         UpdateRope();
+        ServiceLocator.Get<GameManager>().OnDeath += OnDeath;
     }
 
 
     void Update()
     {
+        if (isDead)
+        {
+            UpdateRope();
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -4.5f), Time.deltaTime * 6);
+            return;
+        }
+
         if (lockYAxis)
         {
             transform.position += Vector3.up * Input.GetAxis("Mouse Y") * mouseKiteSpeed * Time.deltaTime;
@@ -97,5 +108,10 @@ public class Kite : MonoBehaviour
         kiteTransform.localScale = new Vector3(0.075f, length);
         kiteTransform.position = (topPoint.position + bottomPoint.position) / 2;
         kiteTransform.localEulerAngles = new Vector3(0, 0, angle * Mathf.Rad2Deg + 90);
+    }
+
+    private void OnDeath(bool isKite)
+    {
+        isDead = true;
     }
 }

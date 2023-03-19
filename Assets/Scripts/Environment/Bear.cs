@@ -7,6 +7,9 @@ public class Bear : Obstacle
     [Header("Variables")]
     [SerializeField] private float bearY = -2.75f;
 
+    [Header("Runtime Variables")]
+    private bool hasRoared = false;
+
 
     void Start()
     {
@@ -22,5 +25,16 @@ public class Bear : Obstacle
 
         if (transform.position.x == -20)
             RemoveObstacle();
+
+        if (!hasRoared && transform.position.x < 10)
+        {
+            hasRoared = true;
+            ServiceLocator.Get<AudioCore>().PlaySFX("BEAR_SPAWN");
+        }
+    }
+
+    protected override void OnCollider()
+    {
+        ServiceLocator.Get<AudioCore>().PlaySFX("BEAR_ATTACK");
     }
 }

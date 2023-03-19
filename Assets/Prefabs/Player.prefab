@@ -158,7 +158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   landPS: {fileID: 1483237436444900516, guid: 9d4d6b60556e7234d93970d5ce98dd69, type: 3}
   jumpPS: {fileID: 7648147680189483277, guid: 0961a7e9fd39d4a4ba8be88d19233f12, type: 3}
-  jumpPower: 50
+  deathParticle: {fileID: 7130656423852082996, guid: d0373031efba4984e96f59a06e77f66d, type: 3}
+  jumpPower: 60
 --- !u!50 &1057510401957696974
 Rigidbody2D:
   serializedVersion: 4

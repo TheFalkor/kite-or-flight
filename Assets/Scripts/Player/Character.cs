@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
     [Header("References")]
     private Rigidbody2D rb2d;
     [SerializeField] private GameObject landPS, jumpPS;
+    [SerializeField] private GameObject deathParticle;
 
     [Header("Variables")]
     [SerializeField] private float jumpPower = 100;
@@ -14,6 +15,7 @@ public class Character : MonoBehaviour
     private bool isGrounded = true;
     private Transform ground;
     private Animator animator;
+    private bool isDead;
 
 
     void Start()
@@ -21,6 +23,8 @@ public class Character : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         ground = GameObject.FindWithTag("Ground").transform;
         animator = GetComponentInChildren<Animator>();
+
+        ServiceLocator.Get<GameManager>().OnDeath += OnDeath;
     }
 
     void Update()
@@ -33,7 +37,7 @@ public class Character : MonoBehaviour
 
     private void Jump()
     {
-        if (!isGrounded)
+        if (!isGrounded || isDead)
             return;
 
         jumpDelay = 0.1f;
@@ -53,10 +57,12 @@ public class Character : MonoBehaviour
         Instantiate(landPS, transform.position, Quaternion.identity, ground);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnDeath(bool isKite)
     {
+        isDead = true;
         animator.SetBool("tripped", true);
         ServiceLocator.Get<GameManager>().Speed = 0f;
         ServiceLocator.Get<GameManager>().SpeedIncrease = 0f;
+        Instantiate(deathParticle, transform.position, Quaternion.identity);
     }
 }

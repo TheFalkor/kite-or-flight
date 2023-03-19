@@ -13,16 +13,27 @@ public class Airplane : Obstacle
 
     [Header("Runtime Variables")]
     private bool hasScreamed = false;
+    private float gameOverSpeed;
 
 
     void Start()
     {
+        transform.position = new Vector2(transform.position.x, Random.Range(2f, 6.5f));
         kiteTransform = GameObject.FindGameObjectWithTag("Kite").transform;
         interactWithKite = true;
     }
 
     void Update()
     {
+        if (speed != 0)
+            gameOverSpeed = speed;
+
+        if (speed == 0)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(-40, transform.position.y), gameOverSpeed * speedModifier * Time.deltaTime);
+            return;
+        }
+
         float targetY = transform.position.y;
         if (transform.position.x > kiteTransform.position.x)
             targetY = kiteTransform.position.y;
@@ -35,5 +46,8 @@ public class Airplane : Obstacle
             hasScreamed = true;
             ServiceLocator.Get<AudioCore>().PlaySFX("AIRPLANE");
         }
+
+        if (transform.position.x == -40)
+            RemoveObstacle();
     }
 }

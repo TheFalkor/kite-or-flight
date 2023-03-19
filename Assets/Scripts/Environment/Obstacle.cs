@@ -19,12 +19,14 @@ public abstract class Obstacle : MonoBehaviour
     {
         if (interactWithKite && col.CompareTag("Kite"))
         {
-            Debug.Log("Kite crashed");
+            OnCollider();
+            ServiceLocator.Get<GameManager>().OnDeath?.Invoke(true);
         }
 
         if (interactWithPlayer && col.CompareTag("Player"))
         {
-            Debug.Log("Player crashed");
+            OnCollider();
+            ServiceLocator.Get<GameManager>().OnDeath?.Invoke(false);
         }
     }
 
@@ -32,4 +34,6 @@ public abstract class Obstacle : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    protected virtual void OnCollider() {}
 }

@@ -15,10 +15,13 @@ MonoBehaviour:
   soundEffectDatabase:
   - soundEffectName: BIRD
     audio:
-      audioType: 0
+      audioType: 2
       audioClip: {fileID: 8300000, guid: 505b99842f5cf264495c16d4115ef09d, type: 3}
-      audioClips: []
-    volume: 0.75
+      audioClips:
+      - {fileID: 8300000, guid: 505b99842f5cf264495c16d4115ef09d, type: 3}
+      - {fileID: 8300000, guid: bca8e5637323ced419677f411355d40d, type: 3}
+      - {fileID: 8300000, guid: 1c84eb1277da9784c845d1293ef81bdf, type: 3}
+    volume: 0.4
     pitch: 1
     modifiers:
     - modifierType: 0
@@ -29,10 +32,32 @@ MonoBehaviour:
       audioType: 0
       audioClip: {fileID: 8300000, guid: 5d15e2fa66795694e836737cdbf79cbc, type: 3}
       audioClips: []
+    volume: 0.7
+    pitch: 1
+    modifiers:
+    - modifierType: 0
+      minimumValue: 1
+      maximumValue: 1.2
+  - soundEffectName: BEAR_ATTACK
+    audio:
+      audioType: 0
+      audioClip: {fileID: 8300000, guid: 03d17d1a9fa19a443b828777238d12fd, type: 3}
+      audioClips: []
     volume: 1
     pitch: 1
     modifiers:
     - modifierType: 0
       minimumValue: 1
       maximumValue: 1.2
-  databaseLength: 2
+  - soundEffectName: BEAR_SPAWN
+    audio:
+      audioType: 0
+      audioClip: {fileID: 8300000, guid: fca7027770ab442418d8c6d2cec83f37, type: 3}
+      audioClips: []
+    volume: 1
+    pitch: 1
+    modifiers:
+    - modifierType: 0
+      minimumValue: 1
+      maximumValue: 1.2
+  databaseLength: 4

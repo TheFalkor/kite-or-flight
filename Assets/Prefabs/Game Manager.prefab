@@ -45,8 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefabs:
+  - {fileID: 4560940516720661124, guid: eb5b8ca658407a441b07a1d1eb84eb4c, type: 3}
+  - {fileID: 4560940516720661124, guid: fcab1e1c343b9ef4593b89076775608e, type: 3}
+  - {fileID: 4560940516720661124, guid: fcab1e1c343b9ef4593b89076775608e, type: 3}
   - {fileID: 4560940516720661124, guid: fcab1e1c343b9ef4593b89076775608e, type: 3}
   - {fileID: 6163544215454023745, guid: 7c911b5a19ba8914aa9cc1471853e1ee, type: 3}
+  - {fileID: 6163544215454023745, guid: 7c911b5a19ba8914aa9cc1471853e1ee, type: 3}
+  - {fileID: 4560940516720661124, guid: fcab1e1c343b9ef4593b89076775608e, type: 3}
   obstacleParent: {fileID: 0}
   player: {fileID: 0}
   maxSpeed: 25
@@ -69,7 +74,7 @@ MonoBehaviour:
   playOnAwake: MUSIC
   masterVolume: 1
   musicVolume: 0.5
-  SFXVolume: 0.3
+  SFXVolume: 0.6
   musicTrackCount: 1
   dontDestroyOnLoad: 0
   forceUniqueInstance: 0

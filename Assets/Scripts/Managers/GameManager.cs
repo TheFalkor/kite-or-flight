@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public delegate void OnTriggerDelegate(bool isKite);
+    public OnTriggerDelegate OnDeath;
+
     [Header("References")]
     [SerializeField] private List<GameObject> obstaclePrefabs;
     [SerializeField] private Transform obstacleParent;
@@ -14,11 +17,12 @@ public class GameManager : MonoBehaviour
     [Header("Variables")]
     [SerializeField] private float maxSpeed = 25;
     [SerializeField] private float speedIncrease = 0.1f;
-    private float spawnSpeed = 5;
+    private float spawnSpeed = 3;
 
     [Header("Runtime Variables")]
     private List<Obstacle> obstacles = new List<Obstacle>();
     [SerializeField] private float speed = 8;
+
 
     public float Speed { get => speed; set
         {
@@ -36,7 +40,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         ServiceLocator.Register(this);
-        ServiceLocator.Register(GetComponent<AudioCore>());
+        ServiceLocator.Register(GameObject.Find("Audio Manager").GetComponent<AudioCore>());
     }
 
     void Start()

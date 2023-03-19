@@ -13,6 +13,7 @@ public class Bird : Obstacle
     [Header("Runtime Variables")]
     private bool hasScreamed = false;
     private float birdModifier = 1;
+    private float gameOverSpeed;
 
 
     void Start()
@@ -24,6 +25,15 @@ public class Bird : Obstacle
 
     void Update()
     {
+        if (speed != 0)
+            gameOverSpeed = speed;
+
+        if (speed == 0)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(-20, transform.position.y), gameOverSpeed * birdModifier * Time.deltaTime);
+            return;
+        }
+
         float targetY = transform.position.y;
         if (transform.position.x > kiteTransform.position.x)
             targetY = kiteTransform.position.y;
