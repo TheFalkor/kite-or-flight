@@ -6,6 +6,8 @@ public abstract class Obstacle : MonoBehaviour
 {
     [Header("Runtime Variables")]
     protected float speed;
+    protected bool interactWithKite = false;
+    protected bool interactWithPlayer = false;
 
 
     public void SetSpeed(float speed)
@@ -15,12 +17,12 @@ public abstract class Obstacle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Kite"))
+        if (interactWithKite && col.CompareTag("Kite"))
         {
             Debug.Log("Kite crashed");
         }
 
-        if (col.CompareTag("Player"))
+        if (interactWithPlayer && col.CompareTag("Player"))
         {
             Debug.Log("Player crashed");
         }
