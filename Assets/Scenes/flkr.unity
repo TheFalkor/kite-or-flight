@@ -968,6 +968,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1748640898 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1057510403410624655, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}
+  m_PrefabInstance: {fileID: 1057510402249305489}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1774538643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1467,5 +1472,9 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1057510403713218807, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}
+      propertyPath: kiteTransform
+      value: 
+      objectReference: {fileID: 1748640898}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}

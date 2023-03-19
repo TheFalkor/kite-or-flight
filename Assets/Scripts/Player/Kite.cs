@@ -7,6 +7,7 @@ public class Kite : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform topPoint;
     [SerializeField] private Transform bottomPoint;
+    [SerializeField] private Transform kiteTransform;
 
     [Header("Setup")]
     [SerializeField] private float keyKiteSpeed = 3;
@@ -32,13 +33,11 @@ public class Kite : MonoBehaviour
     public void MoveUp(float deltaTime)
     {
         transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, maxHeight), keyKiteSpeed * deltaTime);
-        UpdateRope();
     }
 
     public void MoveDown(float deltaTime)
     {
         transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, minHeight), keyKiteSpeed * deltaTime);
-        UpdateRope();
     }
 
     private void UpdateRope()
@@ -46,8 +45,8 @@ public class Kite : MonoBehaviour
         float length = (topPoint.position - bottomPoint.position).magnitude;
         float angle = Mathf.Atan2(topPoint.position.y - bottomPoint.position.y, topPoint.position.x - bottomPoint.position.x);
         
-        transform.GetChild(0).localScale = new Vector3(0.075f, length);
-        transform.GetChild(0).position = (topPoint.position + bottomPoint.position) / 2;
-        transform.GetChild(0).localEulerAngles = new Vector3(0, 0, angle * Mathf.Rad2Deg + 90);
+        kiteTransform.localScale = new Vector3(0.075f, length);
+        kiteTransform.position = (topPoint.position + bottomPoint.position) / 2;
+        kiteTransform.localEulerAngles = new Vector3(0, 0, angle * Mathf.Rad2Deg + 90);
     }
 }
