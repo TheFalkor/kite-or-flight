@@ -436,6 +436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 414292810}
   - component: {fileID: 414292809}
+  - component: {fileID: 414292811}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -475,6 +476,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &414292811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414292808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 834237197, guid: 01ec0947f84e2e94b9fd37be37a067ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicDatabase: {fileID: 11400000, guid: 71664df56531130458f0d3e4d840a674, type: 2}
+  sfxDatabase: {fileID: 11400000, guid: e2c8601924d76b44b89023a8bcbd9376, type: 2}
+  playOnAwake: MUSIC
+  masterVolume: 1
+  musicVolume: 0.5
+  SFXVolume: 0.3
+  musicTrackCount: 1
+  dontDestroyOnLoad: 0
+  forceUniqueInstance: 0
 --- !u!1 &487181989
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,11 +990,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1748640898 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1057510403410624655, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}
-  m_PrefabInstance: {fileID: 1057510402249305489}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1774538643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,49 +1449,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1057510403410624655, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.06636527
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057510403410624655, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.878324
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057510403410624655, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.3453
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057510403410624655, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.7961
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057510403410624655, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9608085
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057510403410624655, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057510403410624655, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057510403410624655, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.277213
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057510403410624655, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 32.188
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057510403713218805, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057510403713218807, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}
-      propertyPath: kiteTransform
-      value: 
-      objectReference: {fileID: 1748640898}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46ca51c040e932644b97f0a0c09a4b9b, type: 3}

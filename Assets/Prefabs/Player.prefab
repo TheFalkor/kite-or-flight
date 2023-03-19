@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 5864967616270263030}
   m_Layer: 0
   m_Name: Character Sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,7 +259,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1057510401957697009
 BoxCollider2D:
@@ -569,13 +569,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057510403410624652}
-  m_LocalRotation: {x: -0, y: -0, z: 0.48740253, w: 0.8731774}
-  m_LocalPosition: {x: 0.71000004, y: 3.62, z: 0}
-  m_LocalScale: {x: 0.075, y: 5.08, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.277213, w: 0.9608085}
+  m_LocalPosition: {x: 0.3453, y: -2.7961, z: 0}
+  m_LocalScale: {x: 0.06636527, y: 4.878324, z: 1}
   m_Children: []
   m_Father: {fileID: 1057510402444031337}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 58.34}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 32.188}
 --- !u!212 &1057510403410624654
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 1057510403713218806}
   m_Layer: 0
   m_Name: Kite Sprite
-  m_TagString: Untagged
+  m_TagString: Kite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -798,7 +798,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
