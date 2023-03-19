@@ -52,4 +52,9 @@ public class Character : MonoBehaviour
 
         Instantiate(landPS, transform.position, Quaternion.identity, ground);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        animator.SetBool("tripped", true);
+    }
 }
