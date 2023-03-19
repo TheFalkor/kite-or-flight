@@ -23,5 +23,5 @@ MonoBehaviour:
     modifiers:
     - modifierType: 0
       minimumValue: 1
-      maximumValue: 1.1
+      maximumValue: 1.2
   databaseLength: 1

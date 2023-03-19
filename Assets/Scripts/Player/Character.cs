@@ -6,16 +6,19 @@ public class Character : MonoBehaviour
 {
     [Header("References")]
     private Rigidbody2D rb2d;
+    [SerializeField] private GameObject landPS, jumpPS;
 
     [Header("Variables")]
     [SerializeField] private float jumpPower = 100;
     private float jumpDelay = 0;
     private bool isGrounded = true;
+    private Transform ground;
 
 
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();   
+        rb2d = GetComponent<Rigidbody2D>();
+        ground = GameObject.FindWithTag("Ground").transform;
     }
 
     void Update()
@@ -35,11 +38,15 @@ public class Character : MonoBehaviour
 
         isGrounded = false;
         rb2d.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+
+        Instantiate(jumpPS,transform.position, Quaternion.identity, ground);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.transform.CompareTag("Ground") && jumpDelay <= 0)
             isGrounded = true;
+
+        Instantiate(landPS, transform.position, Quaternion.identity, ground);
     }
 }
