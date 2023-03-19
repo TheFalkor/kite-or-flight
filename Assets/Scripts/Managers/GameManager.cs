@@ -15,7 +15,12 @@ public class GameManager : MonoBehaviour
     [Header("Runtime Variables")]
     private List<Obstacle> obstacles = new List<Obstacle>();
     [SerializeField] private float speed = 8;
-        
+
+
+    private void Awake()
+    {
+        ServiceLocator.Register(GetComponent<AudioCore>());
+    }
 
     void Start()
     {
