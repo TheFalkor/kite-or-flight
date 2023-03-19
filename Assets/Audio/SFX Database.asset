@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: SFX Database
   m_EditorClassIdentifier: 
   soundEffectDatabase:
-  - soundEffectName: 
+  - soundEffectName: BIRD
     audio:
       audioType: 0
-      audioClip: {fileID: 0}
+      audioClip: {fileID: 8300000, guid: 505b99842f5cf264495c16d4115ef09d, type: 3}
       audioClips: []
-    volume: 1
+    volume: 0.75
     pitch: 1
     modifiers:
-    - modifierType: 1
-      minimumValue: 0.37
-      maximumValue: 0.519
+    - modifierType: 0
+      minimumValue: 1
+      maximumValue: 1.1
   databaseLength: 1

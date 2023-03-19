@@ -9,6 +9,7 @@ public class Character : MonoBehaviour
 
     [Header("Variables")]
     [SerializeField] private float jumpPower = 100;
+    private float jumpDelay = 0;
     private bool isGrounded = true;
 
 
@@ -19,6 +20,8 @@ public class Character : MonoBehaviour
 
     void Update()
     {
+        jumpDelay -= Time.deltaTime;
+
         if (Input.GetKey(KeyCode.Space))
             Jump();
     }
@@ -28,13 +31,15 @@ public class Character : MonoBehaviour
         if (!isGrounded)
             return;
 
+        jumpDelay = 0.1f;
+
         isGrounded = false;
         rb2d.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.transform.CompareTag("Ground"))
+        if (col.transform.CompareTag("Ground") && jumpDelay <= 0)
             isGrounded = true;
     }
 }

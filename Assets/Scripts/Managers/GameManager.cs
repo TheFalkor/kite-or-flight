@@ -13,9 +13,14 @@ public class GameManager : MonoBehaviour
     private float spawnSpeed = 0;
 
     [Header("Runtime Variables")]
-    private List<MovingObstacle> obstacles = new List<MovingObstacle>();
+    private List<Obstacle> obstacles = new List<Obstacle>();
     [SerializeField] private float speed = 8;
-        
+
+
+    private void Awake()
+    {
+        ServiceLocator.Register(GetComponent<AudioCore>());
+    }
 
     void Start()
     {
@@ -39,7 +44,7 @@ public class GameManager : MonoBehaviour
         foreach (Ground g in groundList)
             g.MoveGround(Time.deltaTime);
 
-        speed += 0.5f * Time.deltaTime;
+        speed += 0.2f * Time.deltaTime;
 
         foreach (Ground g in groundList)
             g.SetSpeed(speed);
@@ -55,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     private void SpawnObstacle()
     {
-        MovingObstacle obs = Instantiate(obstaclePrefab, new Vector2(10, Random.Range(-0.5f, 4f)), Quaternion.identity).GetComponent<MovingObstacle>();
+        Obstacle obs = Instantiate(obstaclePrefab, new Vector2(10, Random.Range(-0.5f, 4f)), Quaternion.identity).GetComponent<Obstacle>();
         obstacles.Add(obs);
 
         obs.SetSpeed(Random.Range(0.5f, 1f) * speed);

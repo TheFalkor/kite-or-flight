@@ -329,6 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56cdd013eb39b434eae4a6a2245eaf31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  otherGround: {fileID: 1933165054}
 --- !u!61 &409062172
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -435,6 +436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 414292810}
   - component: {fileID: 414292809}
+  - component: {fileID: 414292811}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -474,6 +476,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &414292811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414292808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 834237197, guid: 01ec0947f84e2e94b9fd37be37a067ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicDatabase: {fileID: 11400000, guid: 71664df56531130458f0d3e4d840a674, type: 2}
+  sfxDatabase: {fileID: 11400000, guid: e2c8601924d76b44b89023a8bcbd9376, type: 2}
+  playOnAwake: MUSIC
+  masterVolume: 1
+  musicVolume: 0.5
+  SFXVolume: 0.3
+  musicTrackCount: 1
+  dontDestroyOnLoad: 0
+  forceUniqueInstance: 0
 --- !u!1 &487181989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,6 +1363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56cdd013eb39b434eae4a6a2245eaf31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  otherGround: {fileID: 409062174}
 --- !u!1 &2098890919
 GameObject:
   m_ObjectHideFlags: 0
