@@ -19,13 +19,13 @@ public class Ground : MonoBehaviour
     public void MoveGround(float deltaTime)
     {
         if (transform.parent == null)
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(-20, -4), speed * deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(-39, 0), speed * deltaTime);
 
-        if (transform.position == new Vector3(-20, -4))
+        if (transform.position == new Vector3(-39, 0))
         {
             otherGround.parent = null;
             transform.parent = otherGround;
-            transform.position = otherGround.position + new Vector3(20, 0);
+            transform.position = otherGround.position + new Vector3(39, 0);
         }
     }
 
