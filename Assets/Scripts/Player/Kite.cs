@@ -11,7 +11,19 @@ namespace flkr
         [SerializeField] private Transform bottomPoint;
 
         [Header("Setup")]
-        [SerializeField] private float moveSpeed = 3;
+        [SerializeField] private float keyKiteSpeed = 3;
+        [SerializeField] private float mouseKiteSpeed = 90;
+
+        private float minHeight = -0.5f;
+        private float maxHeight = 4;
+
+
+        void Update()
+        {
+            transform.position += Vector3.up * Input.GetAxis("Mouse Y") * mouseKiteSpeed * Time.deltaTime;
+            transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, minHeight, maxHeight), transform.position.z);
+            UpdateRope();
+        }
 
 
         void Start()
@@ -21,13 +33,13 @@ namespace flkr
     
         public void MoveUp(float deltaTime)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, 4), moveSpeed * deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, maxHeight), keyKiteSpeed * deltaTime);
             UpdateRope();
         }
 
         public void MoveDown(float deltaTime)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, -0.5f), moveSpeed * deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, minHeight), keyKiteSpeed * deltaTime);
             UpdateRope();
         }
 

@@ -8,6 +8,7 @@ namespace flkr
     {
         [Header("References")]
         [SerializeField] private Kite kite;
+        [SerializeField] private Rigidbody2D rb2d;
 
 
         void Start()
