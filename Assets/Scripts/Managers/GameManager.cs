@@ -5,13 +5,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject obstaclePrefab;
+    [SerializeField] private List<GameObject> obstaclePrefabs;
     [SerializeField] private Transform obstacleParent;
     [Space]
     private List<Ground> groundList = new List<Ground>();
     [SerializeField] private Player player;
 
     [Header("Variables")]
+    [SerializeField] private float maxSpeed = 25;
+    [SerializeField] private float speedIncrease = 0.1f;
     private float spawnSpeed = 0;
 
     [Header("Runtime Variables")]
@@ -49,7 +51,8 @@ public class GameManager : MonoBehaviour
         foreach (Ground g in groundList)
             g.MoveGround(Time.deltaTime);
 
-        speed += 0.2f * Time.deltaTime;
+        if (speed < maxSpeed)
+            speed += speedIncrease * Time.deltaTime;
 
         foreach (Ground g in groundList)
             g.SetSpeed(speed);
@@ -65,9 +68,9 @@ public class GameManager : MonoBehaviour
 
     private void SpawnObstacle()
     {
-        Obstacle obs = Instantiate(obstaclePrefab, new Vector2(10, Random.Range(-0.5f, 4f)), Quaternion.identity, obstacleParent).GetComponent<Obstacle>();
+        Obstacle obs = Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Count)], new Vector2(20, Random.Range(-0.5f, 4f)), Quaternion.identity, obstacleParent).GetComponent<Obstacle>();
         obstacles.Add(obs);
 
-        obs.SetSpeed(Random.Range(0.5f, 1f) * speed);
+        obs.SetSpeed(speed);
     }
 }
