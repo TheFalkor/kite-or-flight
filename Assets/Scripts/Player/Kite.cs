@@ -15,12 +15,16 @@ public class Kite : MonoBehaviour
     private float minHeight = -0.5f;
     private float maxHeight = 4;
 
+    private Vector3 previousPosition, deltaPosition;
+
 
     void Update()
     {
+        deltaPosition = transform.position - previousPosition;
         transform.position += Vector3.up * Input.GetAxis("Mouse Y") * mouseKiteSpeed * Time.deltaTime;
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, minHeight, maxHeight), transform.position.z);
         UpdateRope();
+        previousPosition = transform.position;
     }
 
 
