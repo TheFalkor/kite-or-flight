@@ -60,4 +60,15 @@ MonoBehaviour:
     - modifierType: 0
       minimumValue: 1
       maximumValue: 1.2
-  databaseLength: 4
+  - soundEffectName: DEATH
+    audio:
+      audioType: 0
+      audioClip: {fileID: 8300000, guid: ed406e7200859b549b351fce6d2dc3cc, type: 3}
+      audioClips: []
+    volume: 0.8
+    pitch: 1
+    modifiers:
+    - modifierType: 0
+      minimumValue: 1
+      maximumValue: 1.2
+  databaseLength: 5

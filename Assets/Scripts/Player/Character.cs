@@ -60,6 +60,7 @@ public class Character : MonoBehaviour
     private void OnDeath(bool isKite)
     {
         isDead = true;
+        ServiceLocator.Get<AudioCore>().PlaySFX("DEATH");
         animator.SetBool("tripped", true);
         ServiceLocator.Get<GameManager>().Speed = 0f;
         ServiceLocator.Get<GameManager>().SpeedIncrease = 0f;
