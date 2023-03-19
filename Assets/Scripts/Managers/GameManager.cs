@@ -20,9 +20,22 @@ public class GameManager : MonoBehaviour
     private List<Obstacle> obstacles = new List<Obstacle>();
     [SerializeField] private float speed = 8;
 
+    public float Speed { get => speed; set
+        {
+            speed = value;
+
+            foreach (Ground g in groundList)
+                g.SetSpeed(speed);
+            foreach(Obstacle o in obstacles)
+                o.SetSpeed(speed);
+        }
+    }
+
+    public float SpeedIncrease { get => speedIncrease; set => speedIncrease = value; }
 
     private void Awake()
     {
+        ServiceLocator.Register(this);
         ServiceLocator.Register(GetComponent<AudioCore>());
     }
 
@@ -52,7 +65,7 @@ public class GameManager : MonoBehaviour
             g.MoveGround(Time.deltaTime);
 
         if (speed < maxSpeed)
-            speed += speedIncrease * Time.deltaTime;
+            speed += SpeedIncrease * Time.deltaTime;
 
         foreach (Ground g in groundList)
             g.SetSpeed(speed);

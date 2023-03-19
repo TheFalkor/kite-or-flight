@@ -28,7 +28,7 @@ public class Airplane : Obstacle
             targetY = kiteTransform.position.y;
 
         transform.position = new Vector2(transform.position.x, Mathf.MoveTowards(transform.position.y, targetY, Time.deltaTime * targetSpeed));
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(-20, transform.position.y), speed * Time.deltaTime * speedModifier);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(-40, transform.position.y), speed * Time.deltaTime * speedModifier);
 
         if (!hasScreamed && transform.position.x < 7)
         {
