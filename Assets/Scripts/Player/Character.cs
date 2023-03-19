@@ -13,12 +13,14 @@ public class Character : MonoBehaviour
     private float jumpDelay = 0;
     private bool isGrounded = true;
     private Transform ground;
+    private Animator animator;
 
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         ground = GameObject.FindWithTag("Ground").transform;
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -40,6 +42,7 @@ public class Character : MonoBehaviour
         rb2d.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
 
         Instantiate(jumpPS,transform.position, Quaternion.identity, ground);
+        animator.SetTrigger("jump");
     }
 
     private void OnCollisionEnter2D(Collision2D col)

@@ -12,11 +12,14 @@ public class Bird : Obstacle
 
     [Header("Runtime Variables")]
     private bool hasScreamed = false;
+    private float birdModifier = 1;
 
 
     void Start()
     {
         kiteTransform = GameObject.FindGameObjectWithTag("Kite").transform;
+        interactWithKite = true;
+        birdModifier = Random.Range(0, 0.5f);
     }
 
     void Update()
@@ -26,12 +29,15 @@ public class Bird : Obstacle
             targetY = kiteTransform.position.y;
 
         transform.position = new Vector2(transform.position.x, Mathf.MoveTowards(transform.position.y, targetY, Time.deltaTime * targetSpeed));
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(-20, transform.position.y), speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(-20, transform.position.y), speed * birdModifier * Time.deltaTime);
 
         if (!hasScreamed && transform.position.x < 7)
         {
             hasScreamed = true;
             ServiceLocator.Get<AudioCore>().PlaySFX("BIRD");
         }
+
+        if (transform.position.x == -20)
+            RemoveObstacle();
     }
 }
